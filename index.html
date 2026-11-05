@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Prototipo académico de HousingUP: forma pisos compartidos de estudiantes con compañeros compatibles. Proyecto de clase (EDEM).">
+  <title>HousingUP · Prototipo</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="aviso" role="note">
+    Prototipo académico · proyecto de clase · todos los datos son ficticios: no introduzcas datos personales reales
+  </div>
+
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="HousingUP, inicio"><img src="img/logo.png" alt="HousingUP" width="150" height="57"></a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#inicio" data-vista="inicio">Cómo funciona</a>
+      <a href="#estudiante" data-vista="estudiante">Soy estudiante</a>
+      <a href="#propietario" data-vista="propietario">Soy propietario</a>
+      <a href="#proyecto" data-vista="proyecto">El proyecto</a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- INICIO -->
+    <section id="vista-inicio" class="vista" data-vista="inicio">
+      <div class="heroe">
+        <p class="etiqueta">Pisos compartidos de estudiantes · Valencia</p>
+        <h1>No listamos habitaciones,<br><span>juntamos personas.</span></h1>
+        <p class="entradilla">Rellenas tu perfil, el algoritmo te propone compañeros compatibles y, cuando el grupo está formado, la solicitud llega al propietario con el contrato preparado.</p>
+        <div class="botones">
+          <a class="boton boton-rojo" href="#estudiante">Buscar mi grupo</a>
+          <a class="boton boton-borde" href="#propietario">Tengo un piso</a>
+        </div>
+      </div>
+      <ol class="pasos">
+        <li><span>01</span><strong>Perfil</strong>Presupuesto, zona, horarios, limpieza y ambiente.</li>
+        <li><span>02</span><strong>Match</strong>El algoritmo propone compañeros compatibles.</li>
+        <li><span>03</span><strong>Grupo</strong>Se forma el grupo y la solicitud llega al propietario.</li>
+        <li><span>04</span><strong>Contrato</strong>Verificación y contrato dentro de la app.</li>
+      </ol>
+      <div class="precios">
+        <div class="tarjeta oscura"><p class="etiqueta">Estudiante</p><p class="cifra">0 €</p><p>Perfil, matching, verificación y contrato. Siempre gratis.</p></div>
+        <div class="tarjeta roja"><p class="etiqueta">Propietario · piso completo</p><p class="cifra">800 €</p><p>Grupo verificado para todo el piso: el 50% de una mensualidad, solo si alquilas.</p></div>
+        <div class="tarjeta crema"><p class="etiqueta">Propietario · habitación</p><p class="cifra">150 €</p><p>Cubrimos una habitación libre con alguien que encaje en el piso.</p></div>
+      </div>
+    </section>
+
+    <!-- ESTUDIANTE -->
+    <section id="vista-estudiante" class="vista" data-vista="estudiante" hidden>
+      <h2>Tu perfil de convivencia</h2>
+      <p class="nota">Nada de lo que escribas sale de tu navegador: el prototipo no tiene servidor.</p>
+      <form id="perfil" class="formulario" novalidate>
+        <label>Nombre o alias<input name="nombre" maxlength="30" autocomplete="off" placeholder="Por ejemplo, Alex"></label>
+        <label>Presupuesto máximo por habitación: <output id="presupuesto-valor">420 €</output>
+          <input type="range" name="presupuesto" min="300" max="550" step="10" value="420"></label>
+        <label>Zona
+          <select name="zona" id="zona"></select></label>
+        <label>¿Cuándo entras?
+          <select name="entrada"><option value="septiembre">Septiembre (curso completo)</option><option value="enero">Enero (2.º cuatrimestre, Erasmus)</option></select></label>
+        <fieldset><legend>Horario</legend>
+          <label class="opcion"><input type="radio" name="horario" value="madrugador" checked>Madrugador</label>
+          <label class="opcion"><input type="radio" name="horario" value="mixto">Flexible</label>
+          <label class="opcion"><input type="radio" name="horario" value="nocturno">Nocturno</label></fieldset>
+        <label>Limpieza y orden (1-5): <output id="limpieza-valor">4</output>
+          <input type="range" name="limpieza" min="1" max="5" value="4"></label>
+        <fieldset><legend>Ambiente en casa</legend>
+          <label class="opcion"><input type="radio" name="ambiente" value="tranquilo">Tranquilo</label>
+          <label class="opcion"><input type="radio" name="ambiente" value="social" checked>Social</label>
+          <label class="opcion"><input type="radio" name="ambiente" value="fiestero">Fiestero</label></fieldset>
+        <fieldset><legend>Cómo estudias</legend>
+          <label class="opcion"><input type="radio" name="estudio" value="silencio">En silencio</label>
+          <label class="opcion"><input type="radio" name="estudio" value="normal" checked>Normal</label>
+          <label class="opcion"><input type="radio" name="estudio" value="musica">Con música</label></fieldset>
+        <label>Visitas en casa (1 = casi nunca, 5 = a menudo): <output id="visitas-valor">3</output>
+          <input type="range" name="visitas" min="1" max="5" value="3"></label>
+        <label>Mascotas
+          <select name="mascotas"><option value="no">No tengo</option><option value="tiene">Tengo mascota</option><option value="alergia">Tengo alergia</option></select></label>
+        <label class="opcion"><input type="checkbox" name="fuma">Fumo</label>
+        <label class="opcion"><input type="checkbox" name="noFumadores">Solo quiero pisos sin humo</label>
+        <button class="boton boton-rojo" type="submit">Buscar mi grupo</button>
+      </form>
+      <div id="resultados" aria-live="polite"></div>
+    </section>
+
+    <!-- PROPIETARIO -->
+    <section id="vista-propietario" class="vista" data-vista="propietario" hidden>
+      <h2>Solicitudes recibidas</h2>
+      <p class="nota">Así recibe el propietario un grupo ya formado y verificado. Las solicitudes se guardan solo en este navegador.</p>
+      <div id="solicitudes"></div>
+
+      <h2>¿Cuánto te cuesta una habitación vacía?</h2>
+      <form id="calculadora" class="formulario calculadora" novalidate>
+        <label>Precio de la vivienda (€)<input type="number" name="precioVivienda" value="145000" min="10000" step="1000"></label>
+        <label>Alquiler del piso entero (€/mes)<input type="number" name="alquilerEntero" value="740" min="0" step="10"></label>
+        <label>Alquiler por habitación (€/mes)<input type="number" name="precioHabitacion" value="280" min="0" step="10"></label>
+        <label>Habitaciones<input type="number" name="habitaciones" value="4" min="1" max="8"></label>
+        <label>Meses con una habitación vacía al año<input type="number" name="mesesVacios" value="8" min="0" max="12"></label>
+      </form>
+      <div id="rentabilidad" class="cifras"></div>
+    </section>
+
+    <!-- PROYECTO -->
+    <section id="vista-proyecto" class="vista" data-vista="proyecto" hidden>
+      <h2>Un proyecto de clase</h2>
+      <p>Este prototipo forma parte del <strong>plan de negocio de HousingUP</strong>, elaborado para la asignatura <strong>Plan de Negocio</strong> de 4.º de ADE en <strong>EDEM Escuela de Empresarios</strong> (Valencia, curso 2026-2027). Sirve para enseñar cómo funcionaría el servicio, no es un producto en funcionamiento.</p>
+      <ul class="lista">
+        <li>Todos los estudiantes y pisos son <strong>ficticios</strong>.</li>
+        <li>No hay servidor, base de datos ni pagos: todo ocurre en tu navegador.</li>
+        <li>El contrato que aparece es un <strong>borrador ilustrativo</strong> sin validez legal.</li>
+        <li>El algoritmo de compatibilidad es una versión simplificada del que describe el plan.</li>
+      </ul>
+      <p>Código abierto con licencia MIT: puedes ver cómo funciona en el <a href="https://github.com/alekostormo-collab/housingup-prototipo" rel="noopener noreferrer">repositorio de GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="pie">HousingUP · prototipo académico · EDEM 2026-2027 · datos ficticios</footer>
+</body>
+</html>
