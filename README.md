@@ -13,14 +13,14 @@ HousingUP es una app que forma pisos compartidos de estudiantes con compañeros 
 3. **Grupo.** Muestra los pisos verificados que encajan con el presupuesto de todo el grupo y envía la solicitud al propietario.
 4. **Contrato.** El propietario recibe el grupo ya formado, con un borrador de contrato.
 
-El estudiante no paga nada. El propietario paga **800 € por piso completo** o **150 € por habitación**, y solo si alquila: la mitad que una agencia. El modelo encaja con la Ley 12/2023 por el derecho a la vivienda, que pone los gastos de gestión inmobiliaria a cargo del arrendador (art. 20.2 de la LAU).
+El estudiante no paga nada. El propietario paga **800 € por piso completo** o **150 € por habitación**, y solo si alquila: la mitad que una agencia. El modelo encaja con la práctica del mercado y con la Ley 12/2023 por el derecho a la vivienda, que pone los gastos de gestión inmobiliaria a cargo del arrendador en el alquiler de vivienda habitual (art. 20.2 de la LAU).
 
 ## Para qué sirve este prototipo
 
 Sirve para **enseñar en clase cómo funcionaría el servicio** y validar la lógica del plan de negocio:
 
 - **Soy estudiante:** rellenas el perfil y ves tu mejor grupo, dos alternativas, los motivos de la compatibilidad y los pisos que encajan.
-- **Soy propietario:** ves cómo llega la solicitud de un grupo verificado, la comisión de HousingUP frente a la de una agencia y una calculadora que muestra cuánto cuesta una habitación vacía (del 6,1% de rentabilidad alquilando el piso entero al 9,3% por habitaciones).
+- **Soy propietario:** ves cómo llega la solicitud de un grupo verificado, la comisión de HousingUP frente a la de una agencia y una calculadora que muestra cuánto cuesta una habitación vacía, con el piso tipo del plan (4 habitaciones a 400 €): del 6,1% de rentabilidad alquilando el piso entero al 9,3% por habitaciones, que baja al 7,8% si una habitación queda vacía 8 meses (3.200 € al año).
 
 ## Cómo funciona el algoritmo
 
@@ -55,7 +55,7 @@ Aunque sea un prototipo, lo hemos revisado con la checklist del módulo de ciber
 
 ## Equipo
 
-Proyecto de seis estudiantes de ADE de EDEM: Jon Saldaña (CEO), Alekos Tormo (CTO, desarrollo del prototipo), David Rodríguez (finanzas), Alejandro Amorós (comercial), Antonio Sesé (recursos humanos) y Guillermo Prats (administración).
+Proyecto de seis estudiantes de ADE de EDEM: Jon Saldaña (CEO), Alekos Tormo (CTO y desarrollador del prototipo), David Rodríguez (CFO), Alejandro Amorós (director comercial), Antonio Sesé (director de RR. HH.) y Guillermo Prats (auxiliar administrativo).
 
 ## Licencia
 

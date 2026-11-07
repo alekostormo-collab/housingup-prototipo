@@ -52,9 +52,10 @@ test('la comisión es la del plan: 800 € por piso y 150 € por habitación', 
   assert.equal(comision('habitacion'), 150);
 });
 
-test('la calculadora reproduce el 6,1% y el 9,3% del plan de negocio', () => {
-  const r = rentabilidad({ precioVivienda: 145000, alquilerEntero: 740, precioHabitacion: 280, habitaciones: 4, mesesVacios: 8 });
+test('la calculadora reproduce el 6,1%, el 9,3% y el 7,8% del plan de negocio', () => {
+  const r = rentabilidad({ precioVivienda: 206000, alquilerEntero: 1050, precioHabitacion: 400, habitaciones: 4, mesesVacios: 8 });
   assert.equal(Math.round(r.entero * 1000) / 10, 6.1);
   assert.equal(Math.round(r.habitaciones * 1000) / 10, 9.3);
-  assert.equal(r.perdidaVacio, 2240);
+  assert.equal(Math.round(r.conVacio * 1000) / 10, 7.8);
+  assert.equal(r.perdidaVacio, 3200);
 });
